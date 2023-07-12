@@ -17,7 +17,8 @@ public:
 
 private slots:
     void on_pushButton_clicked();
-
+    void updateSpinBoxValues(const QString& text);
+    void checkSpinBoxValue(int value);
 private:
     Ui::MainWindow *ui;
 };

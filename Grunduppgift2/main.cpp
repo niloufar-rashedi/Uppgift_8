@@ -1,6 +1,6 @@
 #include "mainwindow.h"
-
 #include <QApplication>
+#include <QSlider>
 
 int main(int argc, char *argv[])
 {
