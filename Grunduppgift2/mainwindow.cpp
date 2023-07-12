@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "QMessageBox"
+#include "QDebug"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -25,6 +27,13 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::updateSpinBoxValues(const QString& text)
 {
     int step = text.toInt();
+    if (step >= 0 && step < 255) {
+        qDebug() << "Entered value is within the limit:" << step;
+    } else {
+
+        QMessageBox::warning(this, "Value Error", "Value must be between 0 and 255.");
+        qDebug() << "Entered value is within the limit:" << step;
+    }
 
     ui->spinBoxRed->setSingleStep(step);
     ui->spinBoxGreen->setSingleStep(step);
